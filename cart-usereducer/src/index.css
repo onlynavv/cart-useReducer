@@ -6,13 +6,13 @@
 
 nav {
   background-color: blueviolet;
-  padding: 15px 65px;
+  padding: 25px 85px;
 }
 
 .nav-center {
   display: flex;
   width: 100%;
-  margin: 5px auto;
+  margin: 5px au60pxto;
   justify-content: space-between;
   align-items: center;
 }
@@ -30,15 +30,15 @@ nav {
 
 .nav-container svg {
   color: white;
-  font-size: 25px;
+  font-size: 35px;
 }
 
 .amount-container {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  width: 20px;
-  height: 20px;
+  top: -14px;
+  right: -12px;
+  width: 30px;
+  height: 30px;
   background-color: blueviolet;
   border: solid 1px white;
   border-radius: 50%;
@@ -50,7 +50,7 @@ nav {
 
 .total-amount {
   font-weight: 600;
-  font-size: 12px;
+  font-size: 20px;
   color: white;
 }
 

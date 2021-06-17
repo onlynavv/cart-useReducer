@@ -1,11 +1,13 @@
-import React,{useContext,useState,useReducer} from 'react';
+import React,{useContext,useState,useReducer,useEffect} from 'react';
 import cartItems from './data'
 
 const AppContext = React.createContext();
 
+const url = 'https://course-api.com/react-useReducer-cart-project'
+
 const initialState = {
     loading:false,
-    cart:cartItems,
+    cart:[],
     total:0,
     amount:0
 }
@@ -42,6 +44,28 @@ const reducer = (state,action) => {
      })
      return {...state, cart:tempCart}
     }
+
+    if(action.type==='GET_TOTAL'){
+
+        let {total,amount} = state.cart.reduce((cartTotal,currItem)=>{
+            const {price,amount} = currItem;
+            cartTotal.amount += amount
+            cartTotal.total += amount * price
+            return cartTotal
+        },{
+            total : 0,
+            amount : 0
+        })
+        total = parseFloat(total.toFixed(2))
+        return {...state, amount:amount, total:total}
+    }
+    if(action.type==='LOADING'){
+        return {...state,loading:action.payload}
+    }
+    if(action.type === 'PRODUCT_CONTENT'){
+        return{...state,cart:action.payload}
+    }
+
     return state
 }
 
@@ -64,6 +88,22 @@ const AppProvider = ({children}) => {
     const decreaseItem = (id) => {
         dispatch({type:'DECREASE',payload:id})
     }
+
+    const getData = async() => {
+        dispatch({type:'LOADING', payload:true})
+        const resp = await fetch(url)
+        const data = await resp.json()
+        dispatch({type:'PRODUCT_CONTENT', payload:data})
+        dispatch({type:'LOADING',payload:false})
+    }
+
+    useEffect(()=>{
+        getData()
+    },[])
+
+    useEffect(()=>{
+        dispatch({type:'GET_TOTAL'})
+    },[state.cart])
 
     return(
         <AppContext.Provider value={{...state,clearCart,removeItem,increaseItem,decreaseItem}}>{children}</AppContext.Provider>
