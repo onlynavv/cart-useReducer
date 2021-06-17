@@ -1,0 +1,171 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  background-color: blueviolet;
+  padding: 15px 65px;
+}
+
+.nav-center {
+  display: flex;
+  width: 100%;
+  margin: 5px auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-center h3 {
+  color: white;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.nav-container {
+  display: block;
+  position: relative;
+}
+
+.nav-container svg {
+  color: white;
+  font-size: 25px;
+}
+
+.amount-container {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background-color: blueviolet;
+  border: solid 1px white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+}
+
+.total-amount {
+  font-weight: 600;
+  font-size: 12px;
+  color: white;
+}
+
+.cart {
+  width: 650px;
+  margin: 10px auto;
+  padding: 10px 5px;
+  text-align: center;
+}
+
+.empty-cart {
+  text-align: center;
+}
+
+.cart footer {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.total-cart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.btn {
+  width: fit-content;
+  background-color: blueviolet;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 5px;
+  border: solid 1px blueviolet;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.btn:hover {
+  color: blueviolet;
+  background-color: white;
+  font-weight: 600;
+}
+
+.clear-btn {
+  background-color: crimson;
+  color: white;
+  border: solid 1px crimson;
+  margin-top: 25px;
+}
+
+.clear-btn:hover {
+  color: crimson;
+  background-color: white;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  background-color: rgb(255, 251, 251);
+  padding: 15px 25px;
+  border-radius: 5px;
+}
+
+.cart-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.cart-item h4 {
+  margin-bottom: 5px;
+  font-weight: 900;
+  color: rgb(3, 34, 124);
+}
+
+.cart-item .item-price {
+  color: slateblue;
+  font-weight: 600;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.remove-btn {
+  background-color: transparent;
+  color: crimson;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  padding: 5px 15px;
+  margin-top: 5px;
+}
+
+.remove-btn:hover {
+  background-color: crimson;
+  color: white;
+  border: solid 1px crimson;
+}
+
+.amount-btn {
+  background-color: transparent;
+  border: solid 2px blueviolet;
+  border-radius: 50%;
+  transition: all 0.2s linear;
+  color: blueviolet;
+  padding: 5px;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.amount-btn:hover {
+  background-color: white;
+  border: solid 2px white;
+}
