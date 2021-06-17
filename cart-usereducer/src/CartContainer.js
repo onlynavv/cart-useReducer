@@ -5,12 +5,12 @@ import './index.css'
 
 const CartContainer = () => {
 
-    const {cart} = useGlobalContext()
+    const {cart,total,clearCart} = useGlobalContext()
 
     if(cart.length === 0){
         return (
         <div>
-            <header>
+            <header style={{textAlign:'center'}}>
                 <h3>Your Bag</h3>
                 <h4 className='empty-cart'>is currently empty</h4>
             </header>
@@ -33,9 +33,9 @@ const CartContainer = () => {
                 <hr />
                 <div className='total-cart'>
                     <h4>Total</h4>
-                    <h4>$0.00</h4>
+                    <h4>${total}</h4>
                 </div>
-                <button className='btn clear-btn'>Clear</button>
+                <button className='btn clear-btn' onClick={clearCart}>Clear</button>
             </footer>
         </div>
     )
