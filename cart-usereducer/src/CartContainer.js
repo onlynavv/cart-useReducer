@@ -23,9 +23,9 @@ const CartContainer = () => {
             <h3>Your Bag</h3>
             <div>
                 {cart.map((items)=>{
-                const {id} = items
+            
                 return(
-                    <CartItem key={id} {...items} />
+                    <CartItem key={items.id} {...items} />
                 )
             })}
             </div>

@@ -20,6 +20,28 @@ const reducer = (state,action) => {
         })
         return {...state, cart:newCart }
     }
+    if(action.type === 'INCREASE'){
+        let tempCart = state.cart.map((item)=>{
+            if(item.id === action.payload){
+                return {...item, amount: item.amount + 1}
+            }
+            return item
+        })
+        // console.log(tempCart)
+     return {...state, cart: tempCart}   
+    }
+
+    if(action.type === 'DECREASE'){
+     let tempCart = state.cart.map((item)=>{
+         if(item.id === action.payload){
+             return {...item, amount: item.amount - 1}
+         }
+         return item
+     }).filter((item)=>{
+         return item.amount !==0
+     })
+     return {...state, cart:tempCart}
+    }
     return state
 }
 
@@ -35,8 +57,16 @@ const AppProvider = ({children}) => {
         dispatch({type:'REMOVE_ITEM', payload:id})
     }
 
+    const increaseItem = (id) => {
+        dispatch({type:'INCREASE',payload:id})
+    }
+
+    const decreaseItem = (id) => {
+        dispatch({type:'DECREASE',payload:id})
+    }
+
     return(
-        <AppContext.Provider value={{...state,clearCart,removeItem}}>{children}</AppContext.Provider>
+        <AppContext.Provider value={{...state,clearCart,removeItem,increaseItem,decreaseItem}}>{children}</AppContext.Provider>
     )
 }
 
